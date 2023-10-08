@@ -5,7 +5,6 @@
         private String estado;
         private String cep;
     
-        // Construtor
         public Endereco(String rua, String cidade, String estado, String cep) {
             this.rua = rua;
             this.cidade = cidade;

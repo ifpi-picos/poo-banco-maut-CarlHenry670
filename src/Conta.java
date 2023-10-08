@@ -1,3 +1,5 @@
+
+
 public class Conta {
         private String Numconta;
         private String Agencia;
@@ -8,6 +10,15 @@ public class Conta {
             this.Agencia = Agencia;
             this.saldo = saldo;
 
+        }
+        public void transferir(Conta contaDestino, double valor) {
+            if (valor <= saldo) {
+                saldo -= valor;
+                contaDestino.depositar(valor);
+                System.out.println("Transferencia de R$" + valor + " realizada para a conta " + contaDestino.getConta());
+            } else {
+                System.out.println("Saldo insuficiente para transferencia.");
+            }
         }
     
         public void depositar(double valor) {
@@ -33,5 +44,15 @@ public class Conta {
         public double getSaldo() {
             return saldo;
         }
+
+                @Override
+    public String toString() {
+        return "Conta{" +
+                "numeroConta='" + Numconta + '\'' +
+                ", agencia='" + Agencia + '\'' +
+                ", saldo=" + saldo +
+                '}';
+    }
+    
     }
     
