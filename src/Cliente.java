@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Cliente {
     private String nome;
-    private String CPF;
-    private LocalDate dataNascimento;
+    private final String CPF;
+    private final LocalDate dataNascimento;
     private Endereco endereco;
     private List<Conta> contas;
 
@@ -41,4 +41,12 @@ public class Cliente {
     public Endereco getEndereco() {
         return endereco;
     }
+  
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+    
+        public void setEndereco(Endereco endereco) {
+            this.endereco = endereco;
+        }
 }
