@@ -7,7 +7,8 @@ abstract class Conta {
         protected final String Agencia;
         protected Cliente cliente;
         protected double saldo;
-        private ContaCorrente contacorrente;
+        //private ContaCorrente contacorrente;
+        //provate ContaPoupanca contapoupanca;
     
         public Conta(String Numconta, String Agencia, double saldo, Cliente cliente) {
             this.Numconta = Numconta;

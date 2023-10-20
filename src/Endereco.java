@@ -1,5 +1,6 @@
 
     public class Endereco {
+        private int test;
         private String rua;
         private String cidade;
         private String estado;
