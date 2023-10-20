@@ -26,7 +26,7 @@ public class Cliente {
         return contas;
     }
 
-    public String getNome() {
+    /*public String getNome() {
         return nome;
     }
 
@@ -44,7 +44,7 @@ public class Cliente {
   
         public void setNome(String nome) {
             this.nome = nome;
-        }
+        }*/
     
         public void setEndereco(Endereco endereco) {
             this.endereco = endereco;

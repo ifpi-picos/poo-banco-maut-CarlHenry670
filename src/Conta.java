@@ -7,8 +7,7 @@ abstract class Conta {
         protected final String Agencia;
         protected Cliente cliente;
         protected double saldo;
-        private Poupança poupança;
-        private Corrente corrente;
+        private ContaCorrente contacorrente;
     
         public Conta(String Numconta, String Agencia, double saldo, Cliente cliente) {
             this.Numconta = Numconta;
@@ -17,28 +16,12 @@ abstract class Conta {
             this.cliente = cliente;
 
         }
-        public void transferir(Conta contaDestino, double valor) {
-            if (valor <= saldo) {
-                saldo -= valor;
-                contaDestino.depositar(valor);
-                System.out.println("Transferencia de R$" + valor + " realizada para a conta " + contaDestino.getConta());
-            } else {
-                System.out.println("Saldo insuficiente para transferencia.");
-            }
-        }
-    
-        public void depositar(double valor) {
-            saldo += valor;
+        public abstract void depositar(double valor);
 
-        }
+        public abstract void sacar(double valor);
     
-        public void sacar(double valor) {
-            if (valor <= saldo) {
-                saldo -= valor;
-            } else {
-                System.out.println("Saldo insuficiente para saque.");
-            }
-        }
+        public abstract void transferir(Conta contaDestino, double valor);
+
     
         public String getConta() {
             return Numconta;
@@ -65,8 +48,6 @@ abstract class Conta {
     System.out.println("Saldo atual: " + this.saldo);
     System.out.println("################");
 }
-
-
 
                 @Override
     public String toString() {
