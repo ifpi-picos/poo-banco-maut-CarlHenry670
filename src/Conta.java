@@ -2,19 +2,20 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Conta {
-        private final String Numconta;
-        private final String Agencia;
-        private Cliente cliente;
-        private double saldo;
-        List<Transacao> historicoTransacoes;
+abstract class Conta {
+        protected final String Numconta;
+        protected final String Agencia;
+        protected Cliente cliente;
+        protected double saldo;
+        private Poupança poupança;
+        private Corrente corrente;
     
         public Conta(String Numconta, String Agencia, double saldo, Cliente cliente) {
             this.Numconta = Numconta;
             this.Agencia = Agencia;
             this.saldo = saldo;
             this.cliente = cliente;
-            this.historicoTransacoes = new ArrayList<>();
+
         }
         public void transferir(Conta contaDestino, double valor) {
             if (valor <= saldo) {
@@ -28,13 +29,12 @@ public class Conta {
     
         public void depositar(double valor) {
             saldo += valor;
-            addHistoricoTransacao(valor, "Deposito");
+
         }
     
         public void sacar(double valor) {
             if (valor <= saldo) {
                 saldo -= valor;
-                this.addHistoricoTransacao(valor*-1, "Saque");
             } else {
                 System.out.println("Saldo insuficiente para saque.");
             }
@@ -62,15 +62,10 @@ public class Conta {
     this.saldo = saldo;
  }
    public void exibeExtrato(){
-    this.historicoTransacoes.forEach(t -> System.out.println(t));
     System.out.println("Saldo atual: " + this.saldo);
     System.out.println("################");
 }
 
-   private void addHistoricoTransacao(double valor, String tipo){
-    Transacao t = new Transacao(LocalDate.now(), valor, tipo);
-    this.historicoTransacoes.add(t);
-}
 
 
                 @Override

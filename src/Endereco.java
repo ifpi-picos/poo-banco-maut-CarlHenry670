@@ -3,13 +3,13 @@
         private String rua;
         private String cidade;
         private String estado;
-        private String cep;
+        private int numero;
     
-        public Endereco(String rua, String cidade, String estado, String cep) {
+        public Endereco(String rua, String cidade, String estado, int numero) {
             this.rua = rua;
             this.cidade = cidade;
             this.estado = estado;
-            this.cep = cep;
+            this.numero = numero;
         }
         public String getRua() {
             return rua;
@@ -25,8 +25,8 @@
         }
     
     
-        public String getCep() {
-            return cep;
+        public int getnumero() {
+            return numero;
         }
     
     }
