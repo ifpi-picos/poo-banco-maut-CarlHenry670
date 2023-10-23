@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
+ 
     private String nome;
     private final String CPF;
     private final LocalDate dataNascimento;

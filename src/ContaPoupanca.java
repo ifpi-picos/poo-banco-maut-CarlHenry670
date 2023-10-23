@@ -8,7 +8,6 @@
             super(Numconta, Agencia, saldo, cliente);
             this.rendimento = rendimento;
         }
-    
         @Override
         public void depositar(double valor) {
             if (valor > 0) {
@@ -19,6 +18,7 @@
                 System.out.println("Erro: O valor do depósito deve ser maior que zero.");
             }
         }
+
     
         @Override
         public void sacar(double valor) {
