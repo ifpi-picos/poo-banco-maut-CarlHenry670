@@ -2,11 +2,12 @@ public class ContaCorrente extends Conta {
     private double chequeEspecial;
     int numeroTransferencias;
 
-    public ContaCorrente(String Numconta, String Agencia, Cliente cliente, double saldo, double chequeEspecial) {
-        super(Numconta, Agencia, saldo, cliente);
-        this.chequeEspecial = chequeEspecial;
+    public ContaCorrente(String Numconta, String Agencia, double saldo, Cliente cliente, Notificacao notificacao) {
+        super(Numconta, Agencia, saldo, cliente, notificacao);
+        this.chequeEspecial = 1000;
         this.numeroTransferencias = 0;
     }
+
     @Override
     public void depositar(double valor) {
         if (valor > 0) {

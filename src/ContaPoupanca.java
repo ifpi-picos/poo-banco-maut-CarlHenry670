@@ -2,11 +2,10 @@
     public class ContaPoupanca extends Conta {
         private double taxaTransferencia = 0.1; 
         private double taxaSaque = 0.05; 
-        private double rendimento; 
+        private double rendimento = 0.10; 
     
-        public ContaPoupanca(String Numconta, String Agencia, Cliente cliente, double saldo, double rendimento) {
-            super(Numconta, Agencia, saldo, cliente);
-            this.rendimento = rendimento;
+        public ContaPoupanca(String Numconta, String Agencia, double saldo, Cliente cliente, Notificacao notificacao) {
+            super(Numconta, Agencia, saldo, cliente, notificacao);
         }
         @Override
         public void depositar(double valor) {
