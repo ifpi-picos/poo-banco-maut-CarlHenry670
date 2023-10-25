@@ -1,11 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ContaCorrente extends Conta {
     private double chequeEspecial;
     int numeroTransferencias;
+   
 
     public ContaCorrente(String Numconta, String Agencia, double saldo, Cliente cliente, Notificacao notificacao) {
         super(Numconta, Agencia, saldo, cliente, notificacao);
         this.chequeEspecial = 1000;
         this.numeroTransferencias = 0;
+   
     }
 
     @Override
@@ -33,15 +38,19 @@ public class ContaCorrente extends Conta {
         if (numeroTransferencias < 2 && valor > 0 && valor <= saldo + chequeEspecial) {
             saldo -= valor;
             contaDestino.depositar(valor);
-            System.out.println("Transferência de R$" + valor + " realizada para a conta " + contaDestino.getConta());
+            System.out.println("Transferência de R$" + valor + " realizada para a conta " + contaDestino.getNumconta());
             numeroTransferencias++;
+            getTransacoes().add(new Transacao("Transferencia", valor));
+            contaDestino.getTransacoes().add(new Transacao("Recibo transferencia", valor));
         } else if (numeroTransferencias >= 2 && valor > 0 && valor <= saldo + chequeEspecial) {
             double taxa = 0.1 * valor;
             if (saldo >= valor + taxa) {
                 saldo -= valor + taxa;
                 contaDestino.depositar(valor);
-                System.out.println("Transferência de R$" + valor + " realizada para a conta " + contaDestino.getConta() +
+                System.out.println("Transferência de R$" + valor + " realizada para a conta " + contaDestino.getNumconta() +
                         " com taxa de R$" + taxa);
+                        getTransacoes().add(new Transacao("Transferencia", valor));
+                        contaDestino.getTransacoes().add(new Transacao("Recibo transferencia", valor));
             } else {
                 System.out.println("Erro: Saldo insuficiente para transferência com taxa.");
             }
@@ -49,5 +58,10 @@ public class ContaCorrente extends Conta {
             System.out.println("Erro: Saldo insuficiente ou valor inválido para transferência.");
         }
     }
+
     }
+
+
+
+
 

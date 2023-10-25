@@ -1,4 +1,4 @@
 
     public interface Notificacao {
-        void enviaNotificacao(String operacao, double valor);
+        boolean enviaNotificacao(String operacao, double valor);
     }

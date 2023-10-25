@@ -1,42 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Date;
 
 public class Transacao {
-    private String tipo;
+    private String descricao;
     private double valor;
-    private String data;
+    private Date data;
 
-    public Transacao(String tipo, double valor, String data) {
-        this.tipo = tipo;
+    public Transacao(String descricao, double valor) {
+        this.descricao = descricao;
         this.valor = valor;
-        this.data = data;
-    }
-    
-    private List<Transacao> transacoes; 
-
-    public Transacao() {
-        this.transacoes = new ArrayList<>();
+        this.data = new Date();
     }
 
-    public String getTipo() {
-        return tipo;
+    public Date getData() {
+        return data;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 
     public double getValor() {
         return valor;
     }
 
-    public String getData() {
-        return data;
-    }
-
-
-    public void adicionarTransacao(String tipo, double valor, String data) {
-        Transacao transacao = new Transacao(tipo, valor, data);
-        transacoes.add(transacao);
-    }
-
-    public List<Transacao> getTransacoes() {
-        return transacoes;
-    }
 }

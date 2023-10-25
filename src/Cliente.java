@@ -6,11 +6,11 @@ public class Cliente {
  
     private String nome;
     private final String CPF;
-    private final LocalDate dataNascimento;
+    private final String dataNascimento;
     private Endereco endereco;
     private List<Conta> contas;
 
-    public Cliente(String nome, String CPF, LocalDate dataNascimento, Endereco endereco) {
+    public Cliente(String nome, String CPF, String dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.CPF = CPF;
         this.dataNascimento = dataNascimento;
@@ -35,7 +35,7 @@ public class Cliente {
         return CPF;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 

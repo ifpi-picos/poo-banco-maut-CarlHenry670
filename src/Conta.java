@@ -1,6 +1,6 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 abstract class Conta {
         protected final String Numconta;
@@ -8,17 +8,17 @@ abstract class Conta {
         protected Cliente cliente;
         protected double saldo;
         private Notificacao notificacao;
-        private Transacao transacao;
-        
-    
+        private List<Transacao> transacoes;
+
         public Conta(String Numconta, String Agencia, double saldo, Cliente cliente, Notificacao notificacao) {
             this.Numconta = Numconta;
             this.Agencia = Agencia;
             this.saldo = saldo;
             this.cliente = cliente;
             this.notificacao = notificacao;
-
+            this.transacoes = new ArrayList<Transacao>();
         }
+
         public abstract void depositar(double valor);
 
         public abstract void sacar(double valor);
@@ -27,7 +27,7 @@ abstract class Conta {
 
     
 
-        public String getConta() {
+        public String getNumconta() {
             return Numconta;
         }
 
@@ -55,12 +55,21 @@ public void setNotificacao(Notificacao notificacao){
 public Notificacao getNotificacao() {
     return notificacao;
 }
-
-
-   public void exibeExtrato(){
-    System.out.println("Saldo atual: " + this.saldo);
-    System.out.println("################");
+public List<Transacao> getTransacoes() {
+    return transacoes;
 }
+
+public void exibirTransacoes() {
+    System.out.println("\n***** Extrato de Transacoes da conta " + getNumconta() + " *****");
+    for (Transacao conta : transacoes) {
+        System.out.println(
+                "Tipo ->" + conta.getDescricao() +
+                        "\nValor -> R$" + conta.getValor() +
+                        "\nData ->" + conta.getData());
+        System.out.println("\n************");
+    }
+}
+
 
                 @Override
     public String toString() {
@@ -70,8 +79,6 @@ public Notificacao getNotificacao() {
                 ", saldo=" + saldo +
                 '}';
     }
-                public void setNotificacao(NotificacaoEmail notificacaoEmail) {
-                }
 
     }
     
