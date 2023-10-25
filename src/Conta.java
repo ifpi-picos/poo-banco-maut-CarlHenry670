@@ -7,7 +7,7 @@ abstract class Conta {
         protected final String Agencia;
         protected Cliente cliente;
         protected double saldo;
-        private Notificacao notificacao;
+        protected Notificacao notificacao;
         private List<Transacao> transacoes;
 
         public Conta(String Numconta, String Agencia, double saldo, Cliente cliente, Notificacao notificacao) {
