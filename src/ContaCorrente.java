@@ -24,6 +24,8 @@ public class ContaCorrente extends Conta {
         if (valor > 0) {
             saldo += valor;
             System.out.println("Depósito de R$" + valor + " realizado com sucesso.");
+            getNotificacao().enviaNotificacao("Deposito", valor);
+            getTransacoes().add(new Transacao("Deposito", valor));
         } else {
             System.out.println("Erro: O valor do depósito deve ser maior que zero.");
         }
@@ -34,6 +36,8 @@ public class ContaCorrente extends Conta {
         if (valor <= saldo + chequeEspecial && valor > 0) {
             saldo -= valor;
             System.out.println("Saque de R$" + valor + " realizado com sucesso.");
+            getNotificacao().enviaNotificacao("Saque", valor);
+            getTransacoes().add(new Transacao("Saque", valor));
         } else {
             System.out.println("Erro: Saldo insuficiente ou valor inválido para saque.");
         }

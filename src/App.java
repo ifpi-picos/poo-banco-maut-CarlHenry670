@@ -52,51 +52,48 @@ public class App {
             }
 
         }
-                    
-              contaCorrenteA.depositar(100); // DEPOSITO CORRENTE
-             System.out.println(contaCorrenteA.getSaldo());
-             
-              contaCorrenteA.sacar(100); // SAQUE CORRENTE
-              System.out.println(contaCorrenteA.getSaldo());
-             
 
-            
-              System.out.println(contaCorrenteA.getChequeEspecial()); // CHEQUE CORRENTE ESPECIAL
-              System.out.println(contaCorrenteA.getSaldo());
-             
+        contaCorrenteA.depositar(80); // DEPOSITO CORRENTE
+        System.out.println(contaCorrenteA.getSaldo());
 
-              System.out.println(contaCorrenteA.getSaldo());
-
-            contaCorrenteA.transferir(contaPoupancaB, 100); // TRANSFERENCIA CORRENTE
-            System.out.println(contaCorrenteA.getSaldo());
-
-            contaCorrenteA.transferir(contaCorrenteC, 100); // TRANSFERENCIA CORRENTE
-            System.out.println(contaCorrenteA.getSaldo());
-
-            contaCorrenteA.transferir(contaCorrenteC, 100); // TRANSFERENCIA CORRENTE
-            System.out.println(contaCorrenteA.getSaldo());
+        contaCorrenteA.sacar(50); // SAQUE CORRENTE
+        System.out.println(contaCorrenteA.getSaldo());
 
 
-System.out.println(contaPoupancaB.getSaldo());
-            contaPoupancaB.transferir(contaCorrenteC, 100); // TRANSFERENCIA POUPANÇA
-            System.out.println(contaPoupancaB.getSaldo());
+        contaCorrenteA.transferir(contaPoupancaB, 100); // TRANSFERENCIA CORRENTE
+        System.out.println(contaCorrenteA.getSaldo());
 
-            contaPoupancaB.depositar(100); // DEPOSITO POUPANÇA
-            System.out.println(contaPoupancaB.getSaldo());
+        contaCorrenteA.transferir(contaCorrenteC, 75); // TRANSFERENCIA CORRENTE
+        System.out.println(contaCorrenteA.getSaldo());
 
-            contaPoupancaB.sacar(100); // SAQUE POUPANÇA
-            System.out.println(contaPoupancaB.getSaldo());
+        contaCorrenteA.transferir(contaCorrenteC, 100); // TRANSFERENCIA CORRENTE com desconto
+        System.out.println(contaCorrenteA.getSaldo());
 
-            
-System.out.println(contaPoupancaB.getSaldo());
-            contaPoupancaB.transferir(contaCorrenteC, 100);
-            System.out.println(contaPoupancaB.getSaldo());
+    
 
-            contaPoupancaB.depositar(100); // DEPOSITO POUPANÇA
-            System.out.println(contaPoupancaB.getSaldo());
+        System.out.println(contaPoupancaB.getSaldo());
+        contaPoupancaB.transferir(contaCorrenteC, 90); // TRANSFERENCIA POUPANÇA
+        System.out.println(contaPoupancaB.getSaldo());
 
-            contaPoupancaB.sacar(100); // SAQUE POUPANÇA
-            System.out.println(contaPoupancaB.getSaldo());
+        contaPoupancaB.depositar(100); // DEPOSITO POUPANÇA
+        System.out.println(contaPoupancaB.getSaldo());
+
+        contaPoupancaB.sacar(10); // SAQUE POUPANÇA
+        System.out.println(contaPoupancaB.getSaldo());
+
+        contaPoupancaB.transferir(contaCorrenteC, 100); // TRANSFERENCOA POUPANÇA
+        System.out.println(contaPoupancaB.getSaldo());
+
+        contaPoupancaB.depositar(100); // DEPOSITO POUPANÇA
+        System.out.println(contaPoupancaB.getSaldo());
+
+        contaPoupancaB.sacar(100); // SAQUE POUPANÇA
+        System.out.println(contaPoupancaB.getSaldo());
+
+        contaCorrenteA.exibirTransacoes();
+        contaPoupancaB.exibirTransacoes();
+
+        
     }
 
 }

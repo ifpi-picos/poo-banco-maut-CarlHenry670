@@ -30,6 +30,8 @@ public class ContaPoupanca extends Conta {
             saldo -= valor + taxaSaqueValor;
             System.out.println(
                     "Saque de R$" + valor + " realizado com sucesso. Taxa de R$" + taxaSaqueValor + " aplicada.");
+            getNotificacao().enviaNotificacao("Saque", valor);
+            getTransacoes().add(new Transacao("Saque", valor));
         } else {
             System.out.println("Erro: Saldo insuficiente ou valor inválido para saque.");
         }
@@ -43,6 +45,8 @@ public class ContaPoupanca extends Conta {
             contaDestino.depositar(valor);
             System.out.println("Transferência de R$" + valor + " realizada para a conta " + contaDestino.getNumconta() +
                     ". Taxa de R$" + taxaTransferenciaValor + " aplicada.");
+            getNotificacao().enviaNotificacao("Transferencia", valor);
+            getTransacoes().add(new Transacao("Transferencia", valor));
 
         } else {
             System.out.println("Erro: Saldo insuficiente ou valor inválido para transferência.");
